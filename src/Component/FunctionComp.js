@@ -7,4 +7,5 @@ import React from 'react'
 
 const FunctionComp = () => <h1>Hello Krishoth Kumar</h1>
 
+
 export default FunctionComp  //if is removed add export in function
