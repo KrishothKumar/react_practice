@@ -5,7 +5,7 @@ import React from 'react'
 //     return <h1>Hello Krishoth Kumar</h1>
 // }
 
-const FunctionComp = () => <h1>Hello Krishoth Kumar</h1>
+const FunctionComp = () => <h1>Hello Krishoth Kumar</h1> // JSX arrow function
 
 
 export default FunctionComp  //if is removed add export in function
