@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="app"></div>
+        <h1>DRE</h1>
+        <script type="text/javascript">
+            // Select Container using id.
+            const app = document.getElementById('app');
+            
+            // Create element.
+            const header = document.createElement('h1');
+
+            // Adding Content using node.
+            const headerContent = document.createTextNode('Test JavaScripts',);
+
+            // Append Content to Element.
+            header.appendChild(headerContent);
+
+            // Append Element element to container.
+            app.appendChild(header);
+        </script>
+    </body>
+</html>
