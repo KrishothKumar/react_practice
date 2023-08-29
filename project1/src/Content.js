@@ -19,7 +19,7 @@ const Content = () => {
     return (
         <main>
             <p>{handleChangeQuotes()}</p>
-            <button onClick={handleClick}>Click</button>
+            <button onClick={handleClick()}>Click</button>
         </main>
     )
 }
