@@ -22,7 +22,7 @@ const Content = () => {
 
     return (
         <main>
-            <p>{handleChangeQuotes()}</p>
+            <p onDoubleClick={() => handleClick2('Krishoth Kumar')}>{handleChangeQuotes()}</p>
             <button onClick={(e) => handleClick(e)}>Click</button>
         </main>
     )
