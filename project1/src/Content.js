@@ -12,9 +12,9 @@ const Content = () => {
         return quote[Math.floor(Math.random()*4)];
     }
 
-    // const handleClick = () => {
-    //     alert('The click');
-    // }
+    const handleClick = (e) => {
+        console.log(e.target.innerText);
+    }
 
     const handleClick2 = (value) => {
         alert(`Hello ${value}`);
@@ -23,7 +23,7 @@ const Content = () => {
     return (
         <main>
             <p>{handleChangeQuotes()}</p>
-            <button onClick={() => handleClick2('Krishoth Kumar')}>Click</button>
+            <button onClick={(e) => handleClick(e)}>Click</button>
         </main>
     )
 }
