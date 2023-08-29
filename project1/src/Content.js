@@ -8,7 +8,9 @@ const Content = () => {
     }
     
     return (
-        <p>{handleChangeQuotes()}</p>
+        <main>
+            <p>{handleChangeQuotes()}</p>
+        </main>
     )
 }
 
