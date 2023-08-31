@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useState } from "react";
 
 const Content = () => {
     function handleChangeQuotes() {
@@ -12,18 +12,32 @@ const Content = () => {
         return quote[Math.floor(Math.random()*4)];
     }
 
-    const handleClick = (e) => {
-        console.log(e.target.innerText);
+    const [count, setCount] = useState(9);
+    // const handleClick = (e) => {
+    //     console.log(e.target.innerText);
+    // }
+
+    // const handleClick2 = (value) => {
+    //     alert(`Hello ${value}`);
+    // }
+    const decrementCount = () => {
+        setCount(count - 1);
     }
 
-    const handleClick2 = (value) => {
-        alert(`Hello ${value}`);
+    const incrementCount = () => {
+        setCount((precount) => {return precount + 1});
     }
 
     return (
         <main>
-            <p onDoubleClick={() => handleClick2('Krishoth Kumar')}>{handleChangeQuotes()}</p>
-            <button onClick={(e) => handleClick(e)}>Click</button>
+            {/* <p onDoubleClick={() => handleClick2('Krishoth Kumar')}>{handleChangeQuotes()}</p>
+            <button onClick={(e) => {handleClick(e)}}>Click</button> */}
+
+            <p>The truth will set you free.</p>
+            <button>Click</button>
+            <button onClick={decrementCount}>-</button>
+            <span>{count}</span>
+            <button onClick={incrementCount}>+</button>
         </main>
     )
 }
