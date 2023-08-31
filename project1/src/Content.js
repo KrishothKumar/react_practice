@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { FaTrashAlt } from "react-icons/fa"
 
 const Content = () => {
     // function handleChangeQuotes() {
@@ -44,6 +45,22 @@ const Content = () => {
     //     setCount((precount) => {return precount + 1});
     // }
 
+    const handleCheck = (id) => {
+        // console.log(`id: ${id}`)
+        // const itemsNew = items.map((items) => items.id == id ? {id:items.id,checked:!items.checked,item:items.item}: items)
+        const itemsNew = items.map((items) => items.id == id ? {...items,checked:!items.checked}: items)
+
+        setItems(itemsNew)
+    }
+
+    const handleDelete = (id) => {
+        // console.log(`id: ${id}`)
+        // const itemsNew = items.map((items) => items.id == id ? {id:items.id,checked:!items.checked,item:items.item}: items)
+        // const itemsNew = items.filter((items) => items.id !== id).map((items) => items)
+        const itemsNew = items.filter((items) => items.id !== id)
+
+        setItems(itemsNew)
+    }
     return (
         <main>
             {/* <p onDoubleClick={() => handleClick2('Krishoth Kumar')}>{handleChangeQuotes()}</p>
@@ -53,10 +70,10 @@ const Content = () => {
             <button onClick={handleStateQuotes}>Click</button>*/}
             <ul>
                 {items.map((items) => (
-                        <li>
-                            <input type="checkbox" checked={items.checked}/>
+                        <li className="item" key={items.id}>
+                            <input type="checkbox" onChange={() => {handleCheck(items.id)}} checked={items.checked}/>
                             <label>{items.item}</label>
-                            <button>Delete</button>
+                            <FaTrashAlt role = "button" onClick={() => handleDelete(items.id)}/>
                         </li>
                     )
                 )}
