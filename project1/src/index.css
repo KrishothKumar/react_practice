@@ -122,7 +122,7 @@ ul li::before {
   outline: none;
 }
 
-/* .addForm {
+.addForm {
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -130,7 +130,7 @@ ul li::before {
   padding: 0 0.5rem 0.25rem;
   border-bottom: 1px solid #eee;
 }
-
+ 
 .addForm label {
   position: absolute;
   left: -99999px;
@@ -156,12 +156,12 @@ button {
   background-color: aliceblue;
   color: mediumblue;
   cursor: pointer;
-} */
+}
 
-/* button:focus, 
+button:focus, 
 button:hover {
   color: white;
-  background-color: limegreen;
+  background-color: mediumblue;
   outline: none;
 }
 
@@ -187,4 +187,4 @@ button:hover {
   padding: 0.25rem;
   border-radius: 0.25rem;
   outline: none;
-} */
+}
