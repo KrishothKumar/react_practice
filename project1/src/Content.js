@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTrashAlt } from "react-icons/fa"
+import ItemsList from "./ItemsList";
 
 const Content = ({items, handleCheck, handleDelete}) => {
     // function handleChangeQuotes() {
@@ -68,16 +69,7 @@ const Content = ({items, handleCheck, handleDelete}) => {
             <p>{quote}</p>
             <button onClick={handleStateQuotes}>Click</button>*/}
             {(items.length) ? (
-            <ul>
-                    {items.map((items) => (
-                        <li className="item" key={items.id}>
-                        <input type="checkbox" onChange={() => {handleCheck(items.id)}} checked={items.checked}/>
-                        <label style={items.checked ? {textDecoration:'line-through'} : null} onDoubleClick={() => {handleCheck(items.id)}}>{items.item}</label>
-                        <FaTrashAlt role = "button" onClick={() => handleDelete(items.id)}/>
-                        </li>
-                        )
-                    )}
-            </ul>
+                <ItemsList items={items} handleCheck={handleCheck} handleDelete={handleDelete}/>
             ) : 
                 (<p>Your list is empty</p>)
             }
