@@ -1,8 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa"
 
-const Content = () => {
+const Content = ({items, handleCheck, handleDelete}) => {
     // function handleChangeQuotes() {
     //     const quotes = [
     //         "That's one small step for a man, a giant leap for mankind.", 
@@ -21,11 +20,11 @@ const Content = () => {
     // const numberItems = number.filter(n => n >= 0).map(n => ({number:n}))
     // console.log(numberItems)
 
-    const [items, setItems] = useState([
-        {id: 1, checked: true, item:"React Learning"}, 
-        {id: 2, checked: true, item:"Youtube surfing"}, 
-        {id: 3, checked: false, item:"PocketFm"}
-    ]);
+    // const [items, setItems] = useState([
+    //     {id: 1, checked: true, item:"React Learning"}, 
+    //     {id: 2, checked: true, item:"Youtube surfing"}, 
+    //     {id: 3, checked: false, item:"PocketFm"}
+    // ]);
 
     // function handleStateQuotes () {
     //     setQuote(handleChangeQuotes())
@@ -45,22 +44,22 @@ const Content = () => {
     //     setCount((precount) => {return precount + 1});
     // }
 
-    const handleCheck = (id) => {
-        // console.log(`id: ${id}`)
-        // const itemsNew = items.map((items) => items.id == id ? {id:items.id,checked:!items.checked,item:items.item}: items)
-        const itemsNew = items.map((items) => items.id == id ? {...items,checked:!items.checked}: items)
-        setItems(itemsNew)
-        localStorage.setItem('todo_list', JSON.stringify(itemsNew))
-    }
+    // const handleCheck = (id) => {
+    //     // console.log(`id: ${id}`)
+    //     // const itemsNew = items.map((items) => items.id == id ? {id:items.id,checked:!items.checked,item:items.item}: items)
+    //     const itemsNew = items.map((items) => items.id == id ? {...items,checked:!items.checked}: items)
+    //     setItems(itemsNew)
+    //     localStorage.setItem('todo_list', JSON.stringify(itemsNew))
+    // }
 
-    const handleDelete = (id) => {
-        // console.log(`id: ${id}`)
-        // const itemsNew = items.map((items) => items.id == id ? {id:items.id,checked:!items.checked,item:items.item}: items)
-        // const itemsNew = items.filter((items) => items.id !== id).map((items) => items)
-        const itemsNew = items.filter((items) => items.id !== id)
-        setItems(itemsNew)
-        localStorage.setItem('todo_list', JSON.stringify(itemsNew))
-    }
+    // const handleDelete = (id) => {
+    //     // console.log(`id: ${id}`)
+    //     // const itemsNew = items.map((items) => items.id == id ? {id:items.id,checked:!items.checked,item:items.item}: items)
+    //     // const itemsNew = items.filter((items) => items.id !== id).map((items) => items)
+    //     const itemsNew = items.filter((items) => items.id !== id)
+    //     setItems(itemsNew)
+    //     localStorage.setItem('todo_list', JSON.stringify(itemsNew))
+    // }
     return (
         <main>
             {/* <p onDoubleClick={() => handleClick2('Krishoth Kumar')}>{handleChangeQuotes()}</p>
