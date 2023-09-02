@@ -49,8 +49,8 @@ const Content = () => {
         // console.log(`id: ${id}`)
         // const itemsNew = items.map((items) => items.id == id ? {id:items.id,checked:!items.checked,item:items.item}: items)
         const itemsNew = items.map((items) => items.id == id ? {...items,checked:!items.checked}: items)
-
         setItems(itemsNew)
+        localStorage.setItem('todo_list', JSON.stringify(itemsNew))
     }
 
     const handleDelete = (id) => {
@@ -58,8 +58,8 @@ const Content = () => {
         // const itemsNew = items.map((items) => items.id == id ? {id:items.id,checked:!items.checked,item:items.item}: items)
         // const itemsNew = items.filter((items) => items.id !== id).map((items) => items)
         const itemsNew = items.filter((items) => items.id !== id)
-
         setItems(itemsNew)
+        localStorage.setItem('todo_list', JSON.stringify(itemsNew))
     }
     return (
         <main>
@@ -68,16 +68,20 @@ const Content = () => {
 
             <p>{quote}</p>
             <button onClick={handleStateQuotes}>Click</button>*/}
+            {(items.length) ? (
             <ul>
-                {items.map((items) => (
+                    {items.map((items) => (
                         <li className="item" key={items.id}>
-                            <input type="checkbox" onChange={() => {handleCheck(items.id)}} checked={items.checked}/>
-                            <label>{items.item}</label>
-                            <FaTrashAlt role = "button" onClick={() => handleDelete(items.id)}/>
+                        <input type="checkbox" onChange={() => {handleCheck(items.id)}} checked={items.checked}/>
+                        <label style={items.checked ? {textDecoration:'line-through'} : null} onDoubleClick={() => {handleCheck(items.id)}}>{items.item}</label>
+                        <FaTrashAlt role = "button" onClick={() => handleDelete(items.id)}/>
                         </li>
-                    )
-                )}
+                        )
+                    )}
             </ul>
+            ) : 
+                (<p>Your list is empty</p>)
+            }
         </main>
     )
 }
