@@ -1,28 +1,21 @@
 import { useState } from 'react';
+import colorNames from 'colornames';
+import Square from './Square';
 import './App.css';
 
 function App() {
   const [colour, setColour] = useState();
-  const [toggle, setToggle] = useState('black');
-  const handleInput = (e) => {
-    setColour(e.target.value)
-  }
-
-  const handleToggle = (e) => {
-    if(toggle == 'black'){
-      setToggle('white')
-    } else {
-      setToggle('black')
-    }
-  }
+  const [colourHex, setcolourHex] = useState();
+  const [isToggle, setIsToggle] = useState(true);
 
   return (
-    <div className="App">
-      <div className='square' style={{textAlign:'center', backgroundColor: colour}}>
-      <p style={{color:toggle}}>{colour ? colour : `Empty`}</p>
-      </div>
-      <input onChange={(e) => handleInput(e)} type='text'/>
-      <button onClick={(e) => handleToggle(e)}> Toggle Test colour</button>
+    <div className='App'>
+      <Square colour={colour} colourHex={colourHex} isToggle={isToggle}/>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <label>Add Color Name</label>
+        <input autoFocus onChange={(e) => {setColour(e.target.value); setcolourHex(colorNames(e.target.value))}} type='text'/>
+        <button onClick={(e) => setIsToggle(!isToggle)}> Toggle Text colour</button>
+      </form>
     </div>
   );
 }

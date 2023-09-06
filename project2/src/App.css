@@ -41,7 +41,7 @@
   height: 200px;
   border: 2px solid black;
   box-shadow: 2px 2px 5px #888888;
-  border-radius: 25px;
+  border-radius: 0.25rem;
   display: grid;
   place-content: center;
 }
@@ -50,18 +50,33 @@
   text-align: center;
 }
 
-input {
+form {
   width: 200px;
-  height: 25px;
-  padding: 10px;
-  margin: 5px;
+}
+
+label{
+position: absolute;
+left: -9999px;
+}
+
+input[type="text"] {
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  width: 100%;
+  font-size: 1rem;
+  box-shadow: 2px 2px 5px #888888;
+  border-radius: 0.25rem;
+  outline: none;
 }
 
 button {
-  width: 280px;
-  height: 40px;
-  padding: 0 0 0 0px;
-  margin: 5px;
+  margin-top: 0.5rem;
+  padding: 0.25rem;
+  width: 100%;
+  font-size: 1rem;
+  box-shadow: 2px 2px 5px #888888;
+  border-radius: 0.25rem;
+  outline: none;
 }
 
 /* @keyframes App-logo-spin {
