@@ -2,7 +2,7 @@ import Header from "./Header";
 import Content from "./Content";
 import Footer from "./Footer";
 import './App.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddItems from "./AddItems";
 import SearchItems from "./SearchItems";
 
@@ -12,7 +12,12 @@ function App() {
   //   {id: 2, checked: true, item:"Youtube surfing"}, 
   //   {id: 3, checked: false, item:"PocketFm"}
   // ]
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('todo_list')));
+  const [items, setItems] = useState([]);
+
+  // It will run many time with and without dependancy.
+  useEffect(() => {
+    JSON.parse(localStorage.getItem('todo_list'))
+  }, [])
 
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
